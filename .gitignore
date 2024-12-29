@@ -1,0 +1,7 @@
+# Ignorer les fichiers temporaires et de configuration
+*.pyc
+__pycache__/
+.env
+
+# Ignorer les fichiers contenant des clés ou des secrets
+api_key.txt
