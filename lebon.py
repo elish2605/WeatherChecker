@@ -9,6 +9,8 @@ import os
 load_dotenv()
 
 
+st.set_option('client.showErrorDetails', True)
+
 
 # Fonction pour formater l'heure avec l'offset du fuseau horaire
 def format_time(unix_time, timezone_offset):
