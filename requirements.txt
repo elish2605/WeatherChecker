@@ -103,3 +103,4 @@ websocket-client==1.8.0
 widgetsnbextension==4.0.13
 
 pandas~=2.2.3
+python-dotenv
