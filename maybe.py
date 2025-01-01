@@ -28,6 +28,14 @@ def get_weather_data(city, api_key=None):
     response = requests.get(complete_url)
     data = response.json()
 
+    # Vérifier si la clé API a été correctement chargée
+    if api_key is None:
+        st.error("API key is missing. Please add it as an environment variable.")
+    else:
+        st.success("API key loaded successfully.")
+        # Vous pouvez maintenant utiliser `api_key` pour faire les appels à l'API
+        # Exemple d'appel API
+        # weather_data = get_weather_data(city, api_key)
     # Vérification si la réponse est valide
     if response.status_code == 200:
         return data
