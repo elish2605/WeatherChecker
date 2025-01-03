@@ -4,6 +4,7 @@ import pytz
 from timezonefinder import TimezoneFinder
 import requests  # Pour récupérer les données météo
 
+st.cache_data.clear()
 
 # Fonction pour obtenir la météo (remplacez par votre propre fonction)
 def get_weather_data(api_key, city):
