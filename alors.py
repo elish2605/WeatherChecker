@@ -2,6 +2,10 @@ import streamlit as st
 import requests
 import pandas as pd
 from datetime import datetime, timedelta, timezone
+from timezonefinder import TimezoneFinder
+import pytz
+
+
 
 # Récupérer la clé API depuis les secrets de Streamlit
 api_key = st.secrets["openweather"]["api_key"]
@@ -72,6 +76,31 @@ def display_detailed_weather(data):
     st.write(f"**Visibility**: {data['visibility']} meters")
     st.write(f"**Sunrise**: {format_time(sys['sunrise'], data['timezone'])}")
     st.write(f"**Sunset**: {format_time(sys['sunset'], data['timezone'])}")
+
+# Déterminer le fuseau horaire à partir des coordonnées
+def get_timezone(lat, lon):
+    tf = TimezoneFinder()
+    return tf.timezone_at(lat=lat, lng=lon)
+
+# Récupérer l'heure locale pour un fuseau horaire donné
+def get_local_time(timezone_name):
+    """Retourne l'heure actuelle pour un fuseau horaire donné."""
+    try:
+        city_timezone = pytz.timezone(timezone_name)
+        local_time = datetime.now(city_timezone)
+        return local_time.strftime("%A, %d %B %Y, %H:%M:%S")
+    except pytz.UnknownTimeZoneError:
+        return "Fuseau horaire inconnu"
+
+def get_utc_offset(timezone_name):
+    """Retourne le décalage UTC pour un fuseau horaire donné."""
+    try:
+        city_timezone = pytz.timezone(timezone_name)
+        now = datetime.now(pytz.utc)
+        offset = now.astimezone(city_timezone).utcoffset()
+        return offset.total_seconds() / 3600
+    except pytz.UnknownTimeZoneError:
+        return None
 
 
 # Interface principale

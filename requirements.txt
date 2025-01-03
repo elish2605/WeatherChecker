@@ -70,6 +70,7 @@ pycparser==2.22
 Pygments==2.18.0
 python-dateutil==2.9.0.post0
 python-json-logger==2.0.7
+pytz==2023.3
 pywin32==308
 pywinpty==2.0.13
 PyYAML==6.0.2
@@ -105,3 +106,5 @@ widgetsnbextension==4.0.13
 pandas~=2.2.3
 python-dotenv==0.19.2
 python==3.12.0
+
+timezonefinder~=6.5.7
