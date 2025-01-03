@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
-import os
+
 
 # Charger les variables d'environnement depuis .env
 load_dotenv()
@@ -21,7 +21,12 @@ def format_time(unix_time, timezone_offset):
 @st.cache_data  # Utilisation du cache pour optimiser l'appel API
 def get_weather_data(city, api_key=None):
     if api_key is None:
-        api_key = os.getenv("OPENWEATHER_API_KEY")  # Charger la clé API depuis les variables d'environnement
+        api_key = st.secrets["openweather"]["api_key"]  # Charger la clé API depuis les variables d'environnement
+
+    # Clé API OpenWeatherMap
+    if "openweather" not in st.secrets:
+        st.error("La clé API OpenWeatherMap est manquante dans secrets.toml.")
+        return
 
     base_url = "https://api.openweathermap.org/data/2.5/weather?"
     complete_url = f"{base_url}q={city}&appid={api_key}&units=metric"
@@ -104,6 +109,9 @@ def main():
 
     st.markdown('<h1 class="title">Personalized Weather Application</h1>', unsafe_allow_html=True)
     st.markdown('<p class="info">Enter a city name to get its weather information!</p>', unsafe_allow_html=True)
+
+    st.title("Weather Checker avec heure locale")
+
 
     city = st.text_input("Enter the city name:", "Paris")
 
