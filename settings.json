@@ -1,0 +1,6 @@
+
+{
+  "default_location": "Paris",
+  "temperature_unit": "metric",
+  "favorite_locations": ["Paris", "Jerusalem","London", "New York"]
+}

@@ -109,3 +109,7 @@ python-dotenv==0.19.2
 
 timezonefinder~=6.5.7
 
+
+matplotlib~=3.10.0
+folium~=0.19.3
+streamlit_folium~=0.24.0
