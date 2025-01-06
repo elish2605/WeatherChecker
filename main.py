@@ -84,7 +84,7 @@ def format_time(unix_time, timezone_offset):
 def get_weather_data(city, api_key=None):
     """Fetch weather data using OpenWeather API."""
     if api_key is None:
-        api_key = st.secrets["openweather"]["api_key"]
+        api_key = st.secrets["openweathermap"]["api_key"]
 
     base_url = "https://api.openweathermap.org/data/2.5/weather?"
     complete_url = f"{base_url}q={city}&appid={api_key}&units={settings['temperature_unit']}"
