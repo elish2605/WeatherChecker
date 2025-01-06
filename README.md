@@ -17,7 +17,7 @@ This Python application displays weather data for a given city using the OpenWea
    ```bash
    git clone <REPOSITORY_URL>
    cd WeatherChecker
-   streamlit run app.py
+   streamlit run main.py
 ### Prerequisites
 To run this app, you need to have Python 3.x installed along with the following dependencies:
 
