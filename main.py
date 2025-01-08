@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import pandas as pd
 from datetime import datetime, timedelta, timezone
 import pytz
 from timezonefinder import TimezoneFinder
