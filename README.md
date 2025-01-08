@@ -31,6 +31,7 @@ To run this app, you need to have Python 3.x installed along with the following 
 - `folium`
 
 To run this app on the cloud , follow this URL : https://weatherchecker-bitan.streamlit.app/
+https://weatherchecker-bitan.streamlit.app/
 
 You can install these libraries using `pip`:
 
