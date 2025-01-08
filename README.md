@@ -30,11 +30,13 @@ To run this app, you need to have Python 3.x installed along with the following 
 - `matplotlib`
 - `folium`
 
+To run this app on the cloud , follow this URL : https://weatherchecker-bitan.streamlit.app/
+
 You can install these libraries using `pip`:
 
 ```bash
 pip install streamlit requests pandas pytz timezonefinder matplotlib folium
 
-
-
+'''streamlit web
+To run this app on the cloud , follow this URL : https://weatherchecker-bitan.streamlit.app/
 
